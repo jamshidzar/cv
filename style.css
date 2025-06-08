@@ -1,67 +1,360 @@
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f7f7f7;
+  background-color: #f4f7f6;
   color: #333;
+  line-height: 1.6; /* Added for better readability */
 }
 
-.content {
+main {
   width: 80%;
   margin: 20px auto;
   background-color: #fff;
   padding: 20px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 15px rgba(0,0,0,0.15);
+  border-radius: 8px;
 }
 
-h1, h3 {
+header {
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Specific styling for the header in index.html */
+body > header { /* Using child combinator to target only the main page header */
+  padding: 20px;
+}
+
+body > header img.profile { /* Styling for profile image within the main page header */
+  width: 120px; /* Slightly smaller for better balance */
+  height: 120px;
+  margin-bottom: 15px;
+}
+
+body > header h1 {
+  font-size: 2.2em; /* Adjusted for main page title */
+}
+
+body > header p {
+  font-size: 1em;
+  margin-bottom: 5px;
+}
+
+
+/* Styling for headers within <main> content (e.g., Hobbies, Contact pages) */
+main header h1 {
+  color: #2c3e50;
+  font-size: 2em; /* Slightly smaller than main page title */
+  margin: 0;
+}
+
+nav {
+  background-color: #34495e;
+  padding: 10px 0;
+  text-align: center;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+nav a {
+  color: #ecf0f1;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Added color transition */
+  display: inline-block; /* Ensures padding is respected properly */
+}
+
+nav a:hover {
+  background-color: #4a627a;
+  color: #fff; /* Brighter text on hover */
+  border-radius: 4px;
+}
+
+h1, h2, h3 {
   color: #2c3e50;
 }
 
+h1 { /* Default h1, can be overridden */
+  font-size: 2.2em;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.8em;
+  font-weight: bold;
+  margin-top: 30px; /* Space above section titles */
+}
+
+h3 {
+  font-size: 1.5em;
+  font-weight: normal;
+  margin-bottom: 10px; /* Space below sub-titles */
+}
+
 a {
-  color: #3498db;
+  color: #2980b9;
+  text-decoration: none;
 }
 
 a:hover {
+  color: #1c5a80;
   text-decoration: underline;
 }
 
-.profile {
+.profile { /* General profile class, used in index.html header */
   width: 150px;
+  height: 150px;
   border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 hr {
   border: none;
-  border-top: 1px solid #ccc;
-  margin: 20px 0;
+  border-top: 1px solid #e0e0e0;
+  margin: 30px 0;
 }
 
 ul, ol {
   margin-left: 20px;
+  padding-left: 10px; /* Adjusted padding */
+  line-height: 1.6;
 }
 
+section {
+  margin-bottom: 30px;
+}
+
+/* Skills Section Styling */
+/* Targets the div containing skill groups in index.html */
+main section > h2 + div { /* Changed h3 to h2 to match HTML */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+main section > h2 + div > div { /* Individual skill group - Changed h3 to h2 */
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 6px;
+  flex-basis: calc(50% - 30px); /* Default two columns */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+main section > h2 + div > div p { /* Changed h3 to h2 */
+  margin: 5px 0;
+  color: #333;
+}
+
+
+/* Form Styling */
 form {
   margin-top: 20px;
+  background-color: #fdfdfd;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-input[type="text"], input[type="email"], textarea {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
+form label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: calc(100% - 22px); /* Full width minus padding and border */
+  padding: 10px;
+  margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: #2980b9;
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
 }
 
 input[type="submit"] {
-  background-color: #3498db;
-  color: #fff;
+  background-color: #2980b9;
+  color: #ffffff;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 25px;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
 input[type="submit"]:hover {
-  background-color: #2980b9;
+  background-color: #1c5a80;
+}
+
+footer {
+  background-color: #34495e;
+  color: #ecf0f1;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 30px;
+  border-top: 1px solid #2c3e50;
+  border-radius: 4px; /* Consistent with nav */
+}
+
+/* --- Media Queries for Responsive Design --- */
+
+/* Medium screens (tablets, smaller desktops) */
+@media (max-width: 768px) {
+  main {
+    width: 90%;
+    padding: 15px;
+  }
+
+  /* Adjust header on index.html for stacked layout */
+  body > header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  body > header img.profile {
+    margin-bottom: 20px; /* More space when stacked */
+  }
+
+  nav a {
+    padding: 10px 15px; /* Slightly smaller padding */
+    font-size: 0.95em;
+  }
+
+  h1, body > header h1 { /* Target general h1 and main page header h1 */
+    font-size: 1.8em;
+  }
+
+  main header h1 { /* Headers in Hobbies, Contact */
+     font-size: 1.7em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  h3 {
+    font-size: 1.3em;
+  }
+
+  /* Skills section - ensure they stack if needed */
+  main section > h2 + div > div { /* Changed h3 to h2 */
+    flex-basis: calc(100% - 15px); /* Full width on tablets, consider gap */
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    font-size: 0.95em; /* Slightly smaller font for inputs */
+  }
+}
+
+/* Small screens (mobile phones) */
+@media (max-width: 480px) {
+  main {
+    width: 95%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  body > header {
+    padding: 15px;
+  }
+
+  body > header img.profile {
+    width: 100px;
+    height: 100px;
+  }
+
+  nav {
+    padding: 0; /* Remove padding from nav container */
+  }
+
+  nav a {
+    display: block; /* Stack navigation links */
+    padding: 12px 10px;
+    margin: 5px 0; /* Add margin between stacked links */
+    border-radius: 0; /* Full width feel */
+    text-align: left; /* Align text to the left for stacked nav */
+  }
+
+  nav a:hover {
+    border-radius: 0; /* Keep hover consistent */
+  }
+
+  h1, body > header h1 {
+    font-size: 1.6em;
+  }
+
+   main header h1 { /* Headers in Hobbies, Contact */
+     font-size: 1.5em;
+  }
+
+  h2 {
+    font-size: 1.3em;
+  }
+
+  h3 {
+    font-size: 1.1em;
+  }
+
+  /* Skills section already full width from tablet query */
+
+  form {
+    padding: 15px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: calc(100% - 20px); /* Adjust for padding */
+    padding: 8px;
+    font-size: 1em; /* Ensure readability on mobile */
+  }
+
+  input[type="submit"] {
+    padding: 10px 20px;
+    font-size: 1em;
+    width: 100%; /* Full width button */
+    box-sizing: border-box;
+  }
+
+  footer {
+    padding: 15px 0;
+    font-size: 0.9em;
+  }
+
+  ul, ol {
+    margin-left: 10px; /* Reduce indent on small screens */
+    padding-left: 5px;
+  }
 }

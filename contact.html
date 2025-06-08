@@ -6,27 +6,44 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div class="content">
+    <header>
+      <h1>Contact Me</h1>
+    </header>
 
-    <h3>Contact Me</h3>
-    <ol>
-      <li>506-999-0355</li>
-      <li>Jmai@dal.ca</li>
-    </ol>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="Hobbies.html">My Hobbies</a>
+      <a href="contact.html">Contact Me</a>
+    </nav>
 
-    <form  action="mailto:Jamshid_zar@yahoo.com" method="post" enctype="text/plain">
-      <label> Your Name:</label>
-      <input type="text" name="yourname" value=""><br>
+    <main>
+      <section>
+        <h2>Contact Information</h2>
+        <ul>
+          <li><strong>Phone:</strong> 506-999-0355</li>
+          <li><strong>Email:</strong> Jmai@dal.ca</li>
+        </ul>
+      </section>
 
-      <label>Your Email</label>
-      <input type="email" name="youremail" value=""><br>
-      <label>Your Message:</label><br>
-      <textarea name="name" rows="10" cols="30"></textarea>
+      <section>
+        <h2>Send Me a Message</h2>
+        <form action="mailto:Jamshid_zar@yahoo.com" method="post" enctype="text/plain">
+          <label for="yourname">Your Name:</label>
+          <input type="text" id="yourname" name="yourname" value="">
 
-      <input type="submit" name="">
+          <label for="youremail">Your Email:</label>
+          <input type="email" id="youremail" name="youremail" value="">
 
-    </form>
+          <label for="yourmessage">Your Message:</label>
+          <textarea id="yourmessage" name="yourmessage" rows="10" cols="30"></textarea>
 
-    </div>
+          <input type="submit" value="Send Message">
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2023 Jamshid Zar</p>
+    </footer>
   </body>
 </html>
